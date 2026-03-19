@@ -1,10 +1,12 @@
 package kg.attractor.movie_riviewer.model;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     private Integer id;
     private String name;

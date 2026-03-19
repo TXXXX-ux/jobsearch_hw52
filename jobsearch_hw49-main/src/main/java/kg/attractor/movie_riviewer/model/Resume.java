@@ -1,18 +1,21 @@
 package kg.attractor.movie_riviewer.model;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Resume {
     private Integer id;
-    private Integer applicantId;
     private String name;
-    private Integer categoryId;
-    private Double salary;
-    private Boolean isActive;
-    private LocalDateTime createdDate;
-    private LocalDateTime updateTime;
+    private String surname;
+    private Integer age;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private String avatar;
+    private String accountType;
 }
