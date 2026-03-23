@@ -42,7 +42,7 @@ public class UserRepository {
                     new BeanPropertyRowMapper<>(User.class));
             return Optional.ofNullable(user);
         } catch (Exception e) {
-            return Optional.empty(); // Если юзер не найден, не роняем приложение
+            return Optional.empty();
         }
     }
 

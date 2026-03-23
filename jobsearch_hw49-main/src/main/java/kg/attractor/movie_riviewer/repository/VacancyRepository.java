@@ -16,21 +16,19 @@ public class VacancyRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     public List<Vacancy> findAll() {
-        String sql = "SELECT * FROM vacancies"; // Теперь это сработает, т.к. в базе уже title
+        String sql = "SELECT * FROM vacancies";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Vacancy.class));
     }
 
     public List<Vacancy> findByCategory(String category) {
-        // Явно приводим к нижнему регистру и в базе, и в коде
         String sql = "SELECT * FROM vacancies WHERE LOWER(category) = LOWER(:category)";
 
-        Map<String, Object> params = Map.of("category", category.trim()); // trim() уберет лишние пробелы
+        Map<String, Object> params = Map.of("category", category.trim());
 
         return jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Vacancy.class));
     }
 
     public List<User> findApplicantsByVacancyId(Integer vacancyId) {
-        // Обернул в try-catch, чтобы если таблицы responses еще нет, сервер не падал
         try {
             String sql = "SELECT u.* FROM users u " +
                     "JOIN resumes r ON u.id = r.user_id " +
