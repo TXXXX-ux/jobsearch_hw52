@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-test-vacancies
+      author: tyler
+      changes:
+        - insert:
+            tableName: vacancies
+            columns:
+              - column: { name: title, value: "Java Developer" }
+              - column: { name: description, value: "Spring Boot, SQL" }
+              - column: { name: category, value: "Java" }
+              - column: { name: salary, value: 1500.0 }
+        - insert:
+            tableName: vacancies
+            columns:
+              - column: { name: title, value: "Frontend Developer" }
+              - column: { name: description, value: "React" }
+              - column: { name: category, value: "Frontend" }
+              - column: { name: salary, value: 1200.0 }
